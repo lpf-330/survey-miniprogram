@@ -1,0 +1,14 @@
+<view class="container">  
+  <view class="title">  
+    <text class="first">问</text>  
+    <text class="second">卷</text>  
+    <text class="third">调</text>  
+    <text class="fourth">查</text>  
+  </view>  
+  <view class="description">  
+    欢迎参与我们的问卷调查  
+  </view>  
+  <button class="start-btn" bindtap="startQuestionnaire">  
+    开始答题  
+  </button>  
+</view>  

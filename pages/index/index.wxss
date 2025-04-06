@@ -1,0 +1,52 @@
+.container {  
+  padding: 20px;  
+  text-align: center;  
+}  
+
+.title {  
+  font-size: 48px;  
+  font-weight: bold;  
+  margin: 20px 0;  
+}  
+
+.first {  
+  color: #FF6B6B;  
+}  
+
+.second {  
+  color: #4ECDC4;  
+}  
+
+.third {  
+  color: #45B7D1;  
+}  
+
+.fourth {  
+  color: #96CEB4;  
+}  
+
+.description {  
+  font-size: 16px;  
+  color: #666;  
+  margin: 20px 0;  
+}  
+
+.start-btn {  
+  display: inline-block;  
+  padding: 12px 30px;  
+  font-size: 16px;  
+  background-color: #4CAF50;  
+  color: white;  
+  border: none;  
+  border-radius: 25px;  
+  transition: all 0.3s ease;  
+}  
+
+.start-btn:hover {  
+  background-color: #45a049;  
+  transform: scale(1.02);  
+}  
+
+.start-btn:active {  
+  transform: scale(0.98);  
+}  

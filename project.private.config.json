@@ -3,5 +3,6 @@
   "projectname": "survey-miniprogram",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "libVersion": "trial"
 }

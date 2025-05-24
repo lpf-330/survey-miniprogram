@@ -1,14 +1,25 @@
-<view class="container">  
-  <view class="title">  
-    <text class="first">问</text>  
-    <text class="second">卷</text>  
-    <text class="third">调</text>  
-    <text class="fourth">查</text>  
-  </view>  
-  <view class="description">  
-    欢迎参与我们的问卷调查  
-  </view>  
-  <button class="start-btn" bindtap="startQuestionnaire">  
-    开始答题  
-  </button>  
-</view>  
+<!-- 欢迎区域 -->
+<view class="header">
+    <text class="title">欢迎使用问卷系统</text>
+</view>
+
+<!-- 快速操作区 -->
+<view class="quick-actions">
+    <button class="action-btn" bindtap="gotoCreate">新建问卷</button>
+    <!-- <button class="action-btn" bindtap="viewDetail">我的问卷</button> -->
+</view>
+
+<!-- 最近问卷列表 -->
+<view class="recent-list">
+    <block wx:for="{{recentQuestionnaires}}" wx:key="id">
+        <!-- 修改原问卷卡片部分 -->
+        <!-- 修改原问卷卡片结构 -->
+        <view class="questionnaire-card" bindtap="navigateToDetail" data-id="{{item.id}}" >
+            <view class="card-header">
+                <text class="q-title">{{item.title}}</text>
+                <text class="delete-btn" catchtap="showDeleteConfirm" data-id="{{item.id}}">×</text>
+            </view>
+            <text class="q-time">最后修改：{{item.lastModified}}</text>
+        </view>
+    </block>
+</view>

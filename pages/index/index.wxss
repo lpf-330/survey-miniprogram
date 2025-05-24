@@ -1,52 +1,59 @@
-.container {  
-  padding: 20px;  
-  text-align: center;  
-}  
+.header {
+    padding: 20rpx;
+    background-color: #4a90e2;
+  }
+  
+  .title {
+    color: white;
+    font-size: 36rpx;
+    display: block;
+    text-align: center;
+  }
+  
+  .quick-actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 30rpx 0;
+  }
+  
+  .action-btn {
+    width: 45%;
+    background-color: #07c160;
+    color: white;
+  }
+  
+  .questionnaire-card {
+    background: white;
+    padding: 20rpx;
+    margin: 15rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.1);
+  }
+  
+  .q-title {
+    font-weight: bold;
+    display: block;
+  }
+  
+  .q-time {
+    color: #666;
+    font-size: 24rpx;
+  }
 
-.title {  
-  font-size: 48px;  
-  font-weight: bold;  
-  margin: 20px 0;  
-}  
-
-.first {  
-  color: #FF6B6B;  
-}  
-
-.second {  
-  color: #4ECDC4;  
-}  
-
-.third {  
-  color: #45B7D1;  
-}  
-
-.fourth {  
-  color: #96CEB4;  
-}  
-
-.description {  
-  font-size: 16px;  
-  color: #666;  
-  margin: 20px 0;  
-}  
-
-.start-btn {  
-  display: inline-block;  
-  padding: 12px 30px;  
-  font-size: 16px;  
-  background-color: #4CAF50;  
-  color: white;  
-  border: none;  
-  border-radius: 25px;  
-  transition: all 0.3s ease;  
-}  
-
-.start-btn:hover {  
-  background-color: #45a049;  
-  transform: scale(1.02);  
-}  
-
-.start-btn:active {  
-  transform: scale(0.98);  
-}  
+/* 新增删除按钮样式 */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .delete-btn {
+    font-size: 40rpx;
+    color: #ff4d4f;
+    padding: 0 20rpx;
+    line-height: 1;
+  }
+  
+  .delete-btn:active {
+    opacity: 0.7;
+  }

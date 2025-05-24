@@ -1,0 +1,44 @@
+<!-- 搜索框区域 -->
+<view class="search-bar">
+  <view class="search-input-wrapper">
+    <input 
+      placeholder="输入问卷标题/关键词" 
+      focus="{{autoFocus}}"
+      bindinput="handleSearchInput"
+      value="{{searchKeyword}}"
+      class="search-input"
+    />
+    <text 
+      wx:if="{{searchKeyword}}" 
+      bindtap="clearSearch" 
+      class="clear-btn"
+    >×</text>
+  </view>
+</view>
+
+<!-- 搜索结果列表 -->
+<scroll-view scroll-y class="result-list">
+  <block wx:for="{{searchResults}}" wx:key="id">
+    <view class="result-item" bindtap="navigateToDetail" data-id="{{item.id}}">
+      <text class="item-title">{{item.title}}</text>
+      <view class="meta-info">
+        <text>创建时间：{{item.createTime}}</text>
+        <text class="match-count">匹配项：{{item.matchCount}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 无结果提示 -->
+  <view wx:if="{{showEmpty}}" class="empty-tip">
+    <text class="empty-icon">🔍</text>
+    <text class="empty-text">没有找到相关问卷</text>
+  </view>
+
+  <!-- 搜索提示 -->
+  <view wx:if="{{!searchKeyword}}" class="search-tips">
+    <text class="tip-title">热门搜索：</text>
+    <block wx:for="{{hotKeywords}}" wx:key="index">
+      <text class="tag" bindtap="quickSearch" data-keyword="{{item}}">{{item}}</text>
+    </block>
+  </view>
+</scroll-view>

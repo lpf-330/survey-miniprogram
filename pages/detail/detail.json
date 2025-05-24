@@ -1,0 +1,5 @@
+{
+    "usingComponents": {},
+    "navigationBarTitleText": "问卷详情",
+    "usingFilters": ["statusTextFilter"]
+  }

@@ -1,0 +1,52 @@
+<!-- 基础信息区 -->
+<view class="header">
+    <view class="status-badge {{questionnaire.status}}">
+        {{questionnaire.status | statusTextFilter}}
+    </view>
+    <text class="title">{{questionnaire.title}}</text>
+    <view class="meta">
+        <text>创建：{{questionnaire.createTime}}</text>
+        <text>最后更新：{{questionnaire.lastModified}}</text>
+    </view>
+</view>
+
+<!-- 问题列表容器 -->
+<scroll-view scroll-y class="container">
+    <!-- 问题遍历展示 -->
+    <block wx:for="{{questionnaire.questions}}" wx:key="index">
+        <view class="question-box">
+            <view class="q-header">
+                <text>Q{{index + 1}}.</text>
+                <text class="type-tag">{{item.typeName}}</text>
+            </view>
+
+            <!-- 问题内容 -->
+            <text class="question-content">{{item.content}}</text>
+
+            <!-- 选项展示（仅选择类问题） -->
+            <!-- 修正选项遍历逻辑 -->
+            <block wx:for="{{item.options}}" wx:key="oid">
+                <label class="option-item">
+                    <radio wx:if="{{item.type === 1}}" disabled /> <!-- 修复点3 -->
+                    <checkbox wx:if="{{item.type === 2}}" disabled />
+                    {{item.text}}
+                </label>
+            </block>
+
+            <!-- 文本题展示 -->
+            <!-- <input wx:else placeholder="文本输入区域" disabled class="text-input" /> -->
+        </view>
+    </block>
+
+    <!-- 数据加载状态 -->
+    <view wx:if="{{loading}}" class="loading">加载中...</view>
+    <view wx:if="{{notFound}}" class="not-found">
+        <!-- <image src="/images/404.png" class="not-found-img"/> -->
+        <text>问卷不存在或已被删除</text>
+    </view>
+</scroll-view>
+
+<!-- 底部操作栏 -->
+<view class="footer" wx:if="{{questionnaire.status === 'published'}}">
+    <button class="share-btn">分享问卷</button>
+</view>

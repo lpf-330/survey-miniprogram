@@ -1,0 +1,46 @@
+<view class="container">
+  <!-- 头像上传 -->
+  <view class="avatar-section">
+    <image 
+      src="{{userInfo.avatar || '/images/default-avatar.png'}}" 
+      class="avatar"
+      bindtap="chooseAvatar"
+    />
+    <text class="upload-text">点击更换头像</text>
+  </view>
+
+  <!-- 信息表单 -->
+  <form bindsubmit="saveProfile">
+    <view class="form-item">
+      <text class="label">昵称</text>
+      <input 
+        name="nickname"
+        value="{{userInfo.nickname}}"
+        placeholder="请输入昵称"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">邮箱</text>
+      <input 
+        name="email"
+        type="email"
+        value="{{userInfo.email}}"
+        placeholder="请输入邮箱"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">手机号</text>
+      <input 
+        name="phone"
+        type="number"
+        value="{{userInfo.phone}}"
+        placeholder="请输入手机号"
+        maxlength="11"
+      />
+    </view>
+
+    <button formType="submit" class="save-btn">保存信息</button>
+  </form>
+</view>

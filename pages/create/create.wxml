@@ -1,0 +1,80 @@
+<!-- 问卷标题区 -->
+<view class="header">
+    <input placeholder="请输入问卷标题" value="{{title}}" bindinput="updateTitle" class="title-input" />
+</view>
+
+<!-- 问题列表 -->
+<scroll-view scroll-y class="question-list">
+    <block wx:for="{{questions}}" wx:key="index">
+        <view class="question-card">
+            <!-- 问题头部 -->
+            <view class="question-header">
+                <text>问题 {{index + 1}}</text>
+                <picker bindchange="changeType" data-index="{{index}}" value="{{item.type}}" range="{{questionTypes}}">
+                    <text class="type-tag">{{item.typeName}}</text>
+                </picker>
+            </view>
+
+            <!-- 问题内容 -->
+            <input placeholder="请输入问题内容" value="{{item.content}}" bindinput="updateQuestion" data-index="{{index}}" />
+
+            <!-- 选项管理 -->
+            <!-- <block wx:if="{{item.type === 1 || item.type === 2}}">
+        <view class="options-area">
+          <block wx:for="{{item.options}}" wx:key="oid">
+            <view class="option-item">
+              <input 
+                placeholder="选项内容" 
+                value="{{item.text}}" 
+                bindinput="updateOption"
+                data-qindex="{{index}}"
+                data-oidx="{{oidx}}"
+              />
+              <text 
+                class="delete-option" 
+                bindtap="removeOption"
+                data-qindex="{{index}}"
+                data-oidx="{{oidx}}"
+              >×</text>
+            </view>
+          </block>
+          <button 
+            class="add-option" 
+            bindtap="addOption" 
+            data-index="{{index}}"
+          >+ 添加选项</button>
+        </view>
+      </block> -->
+            <block wx:if="{{item.type === 1 || item.type === 2}}">
+                <view class="options-area">
+                    <!-- 关键修改：添加 wx:for-index="oidx" -->
+                    <block wx:for="{{item.options}}" wx:for-index="oidx" wx:key="oid">
+                        <view class="option-item">
+                            <input placeholder="选项内容" value="{{item.text}}" bindinput="updateOption" data-qindex="{{index}}" 
+                            data-oidx="{{oidx}}"
+                            />
+                            <text class="delete-option" bindtap="removeOption" data-qindex="{{index}}" data-oidx="{{oidx}}">×</text>
+                        </view>
+                    </block>
+                    <button class="add-option" bindtap="addOption" data-index="{{index}}">+ 添加选项</button>
+                </view>
+            </block>
+
+
+            <!-- 操作按钮 -->
+            <view class="question-actions">
+                <text class="action-btn danger" bindtap="removeQuestion" data-index="{{index}}">删除问题</text>
+                <view class="move-btns">
+                    <text class="action-btn" bindtap="moveQuestion" data-index="{{index}}" data-direction="-1">↑ 上移</text>
+                    <text class="action-btn" bindtap="moveQuestion" data-index="{{index}}" data-direction="1">↓ 下移</text>
+                </view>
+            </view>
+        </view>
+    </block>
+</scroll-view>
+
+<!-- 底部操作栏 -->
+<view class="footer">
+    <button class="add-btn" bindtap="addQuestion">+ 添加问题</button>
+    <button class="save-btn" bindtap="saveQuestionnaire">保存问卷</button>
+</view>

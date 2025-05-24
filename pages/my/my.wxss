@@ -1,0 +1,47 @@
+.container {
+    padding: 40rpx;
+  }
+  
+  .avatar-section {
+    text-align: center;
+    margin-bottom: 60rpx;
+  }
+  
+  .avatar {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20rpx;
+  }
+  
+  .upload-text {
+    color: #666;
+    font-size: 28rpx;
+  }
+  
+  .form-item {
+    margin-bottom: 40rpx;
+    background: #fff;
+    padding: 30rpx;
+    border-radius: 12rpx;
+    box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.1);
+  }
+  
+  .label {
+    display: block;
+    color: #333;
+    margin-bottom: 20rpx;
+    font-weight: bold;
+  }
+  
+  input {
+    height: 80rpx;
+    font-size: 32rpx;
+  }
+  
+  .save-btn {
+    background: #07c160;
+    color: white;
+    margin-top: 80rpx;
+  }
